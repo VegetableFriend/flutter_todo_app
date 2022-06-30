@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_todo_app/database/database_manager.dart';
 import 'pages/todo_list_page.dart';
 
 void main() {
-
+  WidgetsFlutterBinding.ensureInitialized();
+  DatabaseManager.sharedInstance();
   runApp(MyApp());
 }
 

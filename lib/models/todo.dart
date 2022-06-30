@@ -1,7 +1,17 @@
-import 'package:reflectable/reflectable.dart';
-
-@Reflectable()
+/// 待办事项
 class Todo {
+  /// id
   int id;
+
+  /// 待办内容
   String content;
+
+  /// 自定义表名
+  static final String tableName = "todo";
+
+  /// 自定义属性映射表
+  static final Map<String, Type> customPropertiesMap = {
+    "id": int,
+    "content": String
+  };
 }
