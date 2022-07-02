@@ -1,3 +1,5 @@
+import 'package:flutter/cupertino.dart';
+
 /// 待办事项
 class Todo {
   /// id
@@ -5,6 +7,10 @@ class Todo {
 
   /// 待办内容
   String content;
+
+  Todo({
+    @required this.content
+  });
 
   /// 自定义表名
   static final String tableName = "todo";

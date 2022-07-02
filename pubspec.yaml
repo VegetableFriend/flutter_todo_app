@@ -32,8 +32,8 @@ dependencies:
   # Database
   sqflite: 1.3.2+4
 
-  # Reflection
-  reflectable: 2.1.0
+  # Data Binding
+  provider: any
 
 
 dev_dependencies:
