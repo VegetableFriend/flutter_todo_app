@@ -3,7 +3,7 @@ import 'package:flutter_todo_app/models/todo.dart';
 /// SQLHelper
 /// Generate sql statement and save constants
 class SQLHelper {
-  static const todoListDBName = "todo_list.db";
+  static const todoListDBName = 'todo_list.db';
 
   static String createTableStatementWith(Type type) {
     Map<String, Type> customPropertiesMap = {};
@@ -15,11 +15,11 @@ class SQLHelper {
   }
 
   static String _generateCreateTableStatementWithMap(Map<String, Type> customPropertiesMap) {
-    String statement = "create table " + Todo.tableName + "(";
+    String statement = 'create table ${Todo.tableName} (';
     statement = statement + _generateColumnStatementWithMap(customPropertiesMap);
-    statement = statement + ")";
+    statement = statement + ')';
 
-    print("${Todo.tableName} create statement: $statement");
+    print('${Todo.tableName} create statement: $statement');
     return statement;
   }
 
@@ -30,23 +30,26 @@ class SQLHelper {
 
     customPropertiesMap.forEach((column, type) {
       // property name
-      statement = statement + column + " ";
+      statement = statement + column + ' ';
       // property type
       statement = statement + _sqlTypeFromDartType(type);
       // divide if needed
       count += 1;
       if (count < total) {
-        statement = statement + ", ";
+        statement = statement + ',';
       }
     });
+
+    print('数据库执行了: $statement 语句创建了数据库表!');
 
     return statement;
   }
 
   static String _sqlTypeFromDartType(Type type) {
     Map<Type, String> sqlTypeMap = {
-      int: "int",
-      String: "varchar(255)"
+      int: 'int',
+      bool: 'int',
+      String: 'varchar(255)'
     };
 
     return sqlTypeMap[type];

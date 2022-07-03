@@ -14,7 +14,7 @@ class DatabaseManager {
   factory DatabaseManager.sharedInstance() => _sharedInstance;
 
   DatabaseManager._internal() {
-    _database = openDatabase(SQLHelper.todoListDBName, onCreate: createTable(), version: 1);
+    _database = openDatabase(SQLHelper.todoListDBName, onCreate: createTable(), version: 2);
   }
 
   OnDatabaseCreateFn createTable() {
